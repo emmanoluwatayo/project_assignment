@@ -10,4 +10,19 @@ class Todo {
     required this.subtitle,
     this.isCompleted = false,
   });
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'subtitle': subtitle,
+      'isCompleted': isCompleted,
+    };
+  }
+
+  factory Todo.fromJson(Map<String, dynamic> json) {
+    return Todo(
+      title: json['title'],
+      subtitle: json['subtitle'],
+      isCompleted: json['isCompleted'],
+    );
+  }
 }
